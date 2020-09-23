@@ -1,6 +1,6 @@
-:root{
+    :root{
     --primary-color:rgb(255, 76, 22);
-    --primary-color-rgba:rgba(255, 141, 0, 0.51);
+    --primary-color-rgba:rgba(255, 76, 22, 0.9);
     --white-color:#fff;
     --black-color:#000;
     --text-color:#333;
@@ -21,6 +21,8 @@ html{
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
+
+/* Responsive */
 .grid{
     width: 1200px;
     max-width: 100%;
@@ -33,7 +35,37 @@ html{
 .grid__row{
     display: flex;
     flex-wrap: wrap;
+
+    width: 100%;
+    margin-left: -5px;
+    margin-right: -5px;
 }
+/* Theo chuẩn chia grid khoảng trắng ở giữa trên PC = 24px */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+
+    width: 16.6667%;
+
+    box-sizing: border-box;
+}
+.grid__column-10{
+    padding-left: 5px;
+    /* padding-right: 5px; */
+
+    /* width: calc(100% - 16.6667%); */
+    width: 83.3334%;
+    box-sizing: border-box;
+}
+.grid__column-2-4{
+    padding-left: 10px;
+    /* padding-right: 5px; */
+
+    width: 20%;
+}
+
+/* Test Responsive */
+
 
 @keyframes fadeIn{
     from{
@@ -102,7 +134,7 @@ html{
 
 .btn{
     padding: 10px 20px;
-    min-width: 146px;
+    min-width: 124px;
     height: 36px;
     border: none;
     border-radius: 2px;
@@ -110,7 +142,14 @@ html{
     background-color: white;
     cursor: pointer;
 
-    
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.6rem;
+    line-height: 1.6rem;
 }
 .btn--normal:hover{
     /* cursor: pointer; */
@@ -126,3 +165,118 @@ html{
     cursor: default;
     background-color: rgb(78, 78, 78);
 }
+
+/* Selection */
+/* CSS select-input */
+.select-input{
+    padding: 10px 10px;
+    min-width: 200px;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+
+    background-color: white;
+    cursor: pointer;
+
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+
+    position: relative;
+    
+    box-shadow: 1px 1px 2px 0.05px #cccccc;
+    z-index: 1;
+}
+.select-input-label{
+    
+}
+.select-input--down{
+    color: rgb(185, 185, 185);
+}
+.select-input__list{
+    position: absolute;
+    top: 65%;
+    /* Có 2 cách xử lý chiều ngang 
+    1 : Cho width:100% 
+    2 : Cho thuộc tính left , right của position = 0*/
+    left: 0;
+    right: 0;
+    /* width: 100%; */
+
+    background-color: var(--white-color);
+
+    list-style-type: none;
+
+    padding: 8px 12px;
+
+    display: none;
+    /* z-index: 1; */
+    transition: all 0.5s;
+    
+    box-shadow: 1px 1px 2px 0.05px #cccccc;
+}
+.select-input__list--item{
+    
+}
+.select-input__list--item a{
+    text-decoration: none;
+    
+    color: var(--text-color);
+    
+    padding: 6px 0;
+
+    display: block;
+}
+
+.select-input__list--item a:hover{
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+
+/* Pagination - Phân Trang*/
+/* Start CSS For - Pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination-item{
+    list-style-type: none;
+    margin: 0 12px;
+}
+.pagination-item__link{
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #939393;
+    
+    display: block;
+
+    min-width: 40px;
+    height: 30px;
+    line-height: 30px;
+    
+    border-radius: 2px;
+}
+
+.pagination-item__item--active .pagination-item__link{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+}
+.pagination-item__item--active .pagination-item__link:hover{
+    background-color: var(--primary-color-rgba);
+}
+.pagination-item__icon{
+
+}
+/* End CSS For - Pagination */
